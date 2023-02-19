@@ -1,11 +1,13 @@
 import { Header } from "./components/Header";
 
+import styles from "./App.module.scss";
+
 export function App() {
   return (
     <div className="app">
       <Header />
 
-      <form>
+      <form className={styles.form}>
         <input
           type="text"
           name="todoTask"
