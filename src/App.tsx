@@ -1,8 +1,8 @@
 import { Header } from "./components/Header";
-
 import { Tasks } from "./components/Tasks";
-import styles from "./App.module.scss";
+
 import { PlusCircle } from "phosphor-react";
+import styles from "./App.module.scss";
 
 export function App() {
   return (
