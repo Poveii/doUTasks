@@ -1,7 +1,18 @@
 import { ClipboardText } from "phosphor-react";
-import styles from "./Tasks.module.scss";
+import { Task } from "./Task";
+import styles from "./TasksPanel.module.scss";
 
-export function Tasks() {
+interface TasksList {
+  id: string;
+  content: string;
+  isDone: boolean;
+}
+
+interface TasksProps {
+  tasksList: TasksList[];
+}
+
+export function TasksPanel({ tasksList }: TasksProps) {
   return (
     <div className={styles.tasks}>
       <div className={styles.tasksHeader}>
@@ -15,8 +26,13 @@ export function Tasks() {
         </p>
       </div>
 
-      <div className={styles.tasksList}>
-        <div>
+      <div className={styles.tasksContent}>
+        <div className={styles.tasksList}>
+          {tasksList.map((task) => {
+            return <Task key={task.id} />;
+          })}
+        </div>
+        <div className={styles.defaultMessage}>
           <ClipboardText size={84} />
           <p>
             <strong>Você ainda não tem tasks cadastradas</strong>

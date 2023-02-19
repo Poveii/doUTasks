@@ -25,13 +25,19 @@
   border-radius: 9999px;
 }
 
-.tasksList {
+.tasksContent {
   margin-top: 1.5rem;
   border-top: 1px solid variables.$alt-border-color;
   border-radius: 8px;
 }
 
-.tasksList > div {
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.defaultMessage {
   height: 15.25rem;
   display: flex;
   flex-direction: column;
@@ -41,7 +47,7 @@
   color: variables.$alt-text-color;
 }
 
-.tasksList > div p {
+.defaultMessage > p {
   display: grid;
   line-height: 140%;
 }

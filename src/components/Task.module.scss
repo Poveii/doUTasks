@@ -1,0 +1,61 @@
+@use "../styles/variables";
+
+.task {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem;
+
+  background-color: variables.$alt-border-color;
+  border-radius: 8px;
+}
+
+.check {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+  position: relative;
+}
+
+.check input[type="checkbox"],
+.check svg {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.check input[type="checkbox"] {
+  appearance: none;
+
+  width: 1.125rem;
+  height: 1.125rem;
+
+  background: transparent;
+  border: 2px solid variables.$primary-color;
+  border-radius: 9999px;
+}
+
+.check input[type="checkbox"]:checked {
+  background-color: variables.$primary-color;
+}
+
+.check svg {
+  position: absolute;
+  z-index: 1;
+}
+
+.task > p {
+  font-size: 0.875rem;
+  line-height: 140%;
+  flex: 1;
+}
+
+.task > button[type="button"] {
+  background: transparent;
+  color: variables.$alt-text-color;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+}
