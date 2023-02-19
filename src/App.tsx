@@ -7,19 +7,16 @@ import { TasksPanel } from "./components/TasksPanel";
 import { PlusCircle } from "phosphor-react";
 import styles from "./App.module.scss";
 
+export interface TasksList {
+  id: string;
+  content: string;
+  isDone: boolean;
+}
+
+const initialTasksList: TasksList[] = [];
+
 export function App() {
-  const [tasksList, setTasksList] = useState([
-    {
-      id: uuidV4(),
-      content: "Implementar todas as funcionalidades",
-      isDone: false,
-    },
-    {
-      id: uuidV4(),
-      content: "Terminar esse projeto hoje",
-      isDone: false,
-    },
-  ]);
+  const [tasksList, setTasksList] = useState(initialTasksList);
   const [taskText, setTaskText] = useState("");
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
