@@ -1,0 +1,47 @@
+@use "../styles/variables";
+
+.tasks {
+  max-width: 45rem;
+  margin: 4rem auto;
+}
+
+.tasksHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tasksHeader > p {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: variables.$primary-color;
+}
+
+.tasksHeader > p span {
+  background-color: variables.$alt-border-color;
+  color: variables.$text-color;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.tasksList {
+  margin-top: 1.5rem;
+  border-top: 1px solid variables.$alt-border-color;
+  border-radius: 8px;
+}
+
+.tasksList > div {
+  height: 15.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: variables.$alt-text-color;
+}
+
+.tasksList > div p {
+  display: grid;
+  line-height: 140%;
+}
