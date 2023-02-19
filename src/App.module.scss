@@ -5,7 +5,7 @@
   display: flex;
   gap: 0.5rem;
   padding-inline: 1rem;
-  margin: -2rem auto 0;
+  margin: -1.75rem auto 0;
 }
 
 .form > input[type="text"] {
@@ -15,6 +15,7 @@
   font-size: 1rem;
   line-height: 140%;
   background-color: variables.$secondary-color;
+  color: variables.$text-color;
   border: 1px solid variables.$border-color;
   border-radius: 8px;
   flex: 1;
@@ -35,4 +36,5 @@
   color: variables.$text-color;
   border: 0;
   border-radius: 8px;
+  cursor: pointer;
 }
