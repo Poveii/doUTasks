@@ -1,11 +1,4 @@
-/* ====== VARIABLES ====== */
-$primary-color: #ffcc33;
-$bg-color: #1f1d20;
-$header-color: #121113;
-$border-color: #0b0a09;
-$alt-border-color: #38332e;
-$text-color: #f5f5f5;
-$alt-text-color: #7b7065;
+@use "./styles/variables";
 
 /* ====== RESET ====== */
 * {
@@ -15,6 +8,6 @@ $alt-text-color: #7b7065;
 }
 
 body {
-  background-color: $bg-color;
-  color: $text-color;
+  background-color: variables.$bg-color;
+  color: variables.$text-color;
 }
