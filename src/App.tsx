@@ -1,6 +1,7 @@
 import { Header } from "./components/Header";
 
 import styles from "./App.module.scss";
+import { PlusCircle } from "phosphor-react";
 
 export function App() {
   return (
@@ -13,7 +14,10 @@ export function App() {
           name="todoTask"
           placeholder="Adicione uma nova task"
         />
-        <button type="submit">Criar</button>
+        <button type="submit">
+          Criar
+          <PlusCircle size={20} />
+        </button>
       </form>
     </div>
   );
