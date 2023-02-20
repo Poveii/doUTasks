@@ -26,7 +26,7 @@ export function Task({ id, content, onDoneTask }: TaskProps) {
           checked={isChecked}
           onChange={handleTaskDone}
         />
-        {isChecked && <Check size={18} />}
+        {isChecked && <Check size={12} weight="bold" />}
       </label>
 
       {isChecked ? <del>{content}</del> : <p>{content}</p>}
