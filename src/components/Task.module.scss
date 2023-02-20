@@ -46,10 +46,15 @@
   z-index: 1;
 }
 
-.task > p {
+.task > p,
+.task > del {
   font-size: 0.875rem;
   line-height: 140%;
   flex: 1;
+}
+
+.task > del {
+  color: variables.$alt-text-color;
 }
 
 .task > button[type="button"] {

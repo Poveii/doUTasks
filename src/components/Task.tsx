@@ -3,11 +3,18 @@ import { Check, Trash } from "phosphor-react";
 
 import styles from "./Task.module.scss";
 
-export function Task() {
+interface TaskProps {
+  id: string;
+  content: string;
+  onDoneTask: (taskId: string) => void;
+}
+
+export function Task({ id, content, onDoneTask }: TaskProps) {
   const [isChecked, setIsChecked] = useState(false);
 
   function handleTaskDone() {
     setIsChecked((state) => !state);
+    onDoneTask(id);
   }
 
   return (
@@ -22,7 +29,7 @@ export function Task() {
         {isChecked && <Check size={18} />}
       </label>
 
-      <p>Task</p>
+      {isChecked ? <del>{content}</del> : <p>{content}</p>}
       <button type="button" title="Deletar Task">
         <Trash size={20} />
       </button>

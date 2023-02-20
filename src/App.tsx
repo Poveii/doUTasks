@@ -33,6 +33,17 @@ export function App() {
     setTaskText("");
   }
 
+  function onDoneTask(taskId: string) {
+    const tasksListWithDoneTask = tasksList.map((task) => {
+      if (task.id === taskId) {
+        task.isDone = !task.isDone;
+      }
+      return task;
+    });
+
+    setTasksList(tasksListWithDoneTask);
+  }
+
   return (
     <div className="app">
       <Header />
@@ -52,7 +63,7 @@ export function App() {
           </button>
         </form>
 
-        <TasksPanel tasksList={tasksList} />
+        <TasksPanel tasksList={tasksList} onDoneTask={onDoneTask} />
       </main>
     </div>
   );

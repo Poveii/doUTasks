@@ -5,26 +5,37 @@ import styles from "./TasksPanel.module.scss";
 
 interface TasksProps {
   tasksList: TasksList[];
+  onDoneTask: (taskId: string) => void;
 }
 
-export function TasksPanel({ tasksList }: TasksProps) {
+export function TasksPanel({ tasksList, onDoneTask }: TasksProps) {
   return (
     <div className={styles.tasks}>
       <div className={styles.tasksHeader}>
         <p>
           Tarefas Criadas
-          <span>0</span>
+          <span>{tasksList.length}</span>
         </p>
         <p>
           Concluídas
-          <span>0</span>
+          <span>
+            {tasksList.filter(({ isDone }) => isDone !== false).length}
+            {tasksList.length !== 0 && ` de ${tasksList.length}`}
+          </span>
         </p>
       </div>
 
       <div className={styles.tasksContent}>
         <div className={styles.tasksList}>
           {tasksList.map((task) => {
-            return <Task key={task.id} />;
+            return (
+              <Task
+                key={task.id}
+                id={task.id}
+                content={task.content}
+                onDoneTask={onDoneTask}
+              />
+            );
           })}
         </div>
 
