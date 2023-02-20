@@ -1,6 +1,7 @@
-import { ClipboardText } from "phosphor-react";
 import { TasksList } from "../App";
 import { Task } from "./Task";
+
+import { ClipboardText } from "phosphor-react";
 import styles from "./TasksPanel.module.scss";
 
 interface TasksProps {
