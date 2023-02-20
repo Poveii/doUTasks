@@ -39,6 +39,7 @@ export function TasksPanel({
                 key={task.id}
                 id={task.id}
                 content={task.content}
+                isDone={task.isDone}
                 onDoneTask={onDoneTask}
                 onDeleteTask={onDeleteTask}
               />

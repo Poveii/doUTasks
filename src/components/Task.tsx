@@ -6,12 +6,19 @@ import styles from "./Task.module.scss";
 interface TaskProps {
   id: string;
   content: string;
+  isDone: boolean;
   onDoneTask: (taskId: string) => void;
   onDeleteTask: (taskId: string) => void;
 }
 
-export function Task({ id, content, onDoneTask, onDeleteTask }: TaskProps) {
-  const [isChecked, setIsChecked] = useState(false);
+export function Task({
+  id,
+  content,
+  isDone,
+  onDoneTask,
+  onDeleteTask,
+}: TaskProps) {
+  const [isChecked, setIsChecked] = useState(isDone);
 
   function handleTaskDone() {
     setIsChecked((state) => !state);
