@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 import { v4 as uuidV4 } from "uuid";
 
 import { Header } from "./components/Header";
@@ -20,7 +20,12 @@ export function App() {
   const [taskText, setTaskText] = useState("");
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
     setTaskText(event.target.value);
+  }
+
+  function handleInputInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("Este campo é obrigatório!");
   }
 
   function handleNewTask(event: FormEvent) {
@@ -69,7 +74,9 @@ export function App() {
             name="todoTask"
             placeholder="Adicione uma nova task"
             onChange={handleInputChange}
+            onInvalid={handleInputInvalid}
             value={taskText}
+            required
           />
           <button type="submit">
             Criar
