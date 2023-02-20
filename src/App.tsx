@@ -44,6 +44,20 @@ export function App() {
     setTasksList(tasksListWithDoneTask);
   }
 
+  function onDeleteTask(taskId: string) {
+    const tasksListWithDeletedOne = tasksList.filter((task) => {
+      if (task.id === taskId) return;
+      return task;
+    });
+
+    let userDeleteDecision = confirm(
+      "Você realmente deseja deletar essa task?"
+    );
+    if (userDeleteDecision) setTasksList(tasksListWithDeletedOne);
+
+    return;
+  }
+
   return (
     <div className="app">
       <Header />
@@ -63,7 +77,11 @@ export function App() {
           </button>
         </form>
 
-        <TasksPanel tasksList={tasksList} onDoneTask={onDoneTask} />
+        <TasksPanel
+          tasksList={tasksList}
+          onDoneTask={onDoneTask}
+          onDeleteTask={onDeleteTask}
+        />
       </main>
     </div>
   );

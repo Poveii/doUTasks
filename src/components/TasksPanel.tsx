@@ -7,9 +7,14 @@ import styles from "./TasksPanel.module.scss";
 interface TasksProps {
   tasksList: TasksList[];
   onDoneTask: (taskId: string) => void;
+  onDeleteTask: (taskId: string) => void;
 }
 
-export function TasksPanel({ tasksList, onDoneTask }: TasksProps) {
+export function TasksPanel({
+  tasksList,
+  onDoneTask,
+  onDeleteTask,
+}: TasksProps) {
   return (
     <div className={styles.tasks}>
       <div className={styles.tasksHeader}>
@@ -35,6 +40,7 @@ export function TasksPanel({ tasksList, onDoneTask }: TasksProps) {
                 id={task.id}
                 content={task.content}
                 onDoneTask={onDoneTask}
+                onDeleteTask={onDeleteTask}
               />
             );
           })}

@@ -7,14 +7,19 @@ interface TaskProps {
   id: string;
   content: string;
   onDoneTask: (taskId: string) => void;
+  onDeleteTask: (taskId: string) => void;
 }
 
-export function Task({ id, content, onDoneTask }: TaskProps) {
+export function Task({ id, content, onDoneTask, onDeleteTask }: TaskProps) {
   const [isChecked, setIsChecked] = useState(false);
 
   function handleTaskDone() {
     setIsChecked((state) => !state);
     onDoneTask(id);
+  }
+
+  function handleDeleteTask() {
+    onDeleteTask(id);
   }
 
   return (
@@ -30,7 +35,7 @@ export function Task({ id, content, onDoneTask }: TaskProps) {
       </label>
 
       {isChecked ? <del>{content}</del> : <p>{content}</p>}
-      <button type="button" title="Deletar Task">
+      <button type="button" title="Deletar Task" onClick={handleDeleteTask}>
         <Trash size={20} />
       </button>
     </div>
