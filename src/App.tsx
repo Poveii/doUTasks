@@ -3,6 +3,7 @@ import { v4 as uuidV4 } from "uuid";
 
 import { Header } from "./components/Header";
 import { TasksPanel } from "./components/TasksPanel";
+import { useLocalStorage } from "./components/useLocalStorage";
 
 import { PlusCircle } from "phosphor-react";
 import styles from "./App.module.scss";
@@ -16,7 +17,7 @@ export interface TasksList {
 const initialTasksList: TasksList[] = [];
 
 export function App() {
-  const [tasksList, setTasksList] = useState(initialTasksList);
+  const [tasksList, setTasksList] = useLocalStorage(initialTasksList);
   const [taskText, setTaskText] = useState("");
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
