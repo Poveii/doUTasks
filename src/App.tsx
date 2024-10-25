@@ -64,6 +64,28 @@ export function App() {
     return;
   }
 
+  function handleMarkAll() {
+    const allTasksDone = tasksList.map((task) => {
+      return {
+        ...task,
+        isDone: true
+      }
+    })
+    setTasksList(allTasksDone)
+  }
+
+  function handleCleanAll() {
+    const allTasksClean = tasksList.map((task) => {
+      return {
+        ...task,
+        isDone: false
+      }
+    })
+    setTasksList(allTasksClean)
+  }
+
+  const isAllTasksCompleted = tasksList.every((task) => task.isDone === true)
+
   return (
     <div className="app">
       <Header />
@@ -90,6 +112,22 @@ export function App() {
           onDoneTask={onDoneTask}
           onDeleteTask={onDeleteTask}
         />
+
+        {
+          tasksList.length >= 2 && <div className={styles.changeAllTasks}>
+            {
+              isAllTasksCompleted
+              ?
+                <button id="clean_all" onClick={handleCleanAll}>
+                  Desmarcar todas as concluídas
+                </button>
+              :
+                <button id="mark_all" onClick={handleMarkAll}>
+                  Marcar todas como concluídas
+                </button>
+            }
+          </div>
+        }
       </main>
     </div>
   );

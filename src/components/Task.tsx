@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Check, Trash } from "phosphor-react";
 
 import styles from "./Task.module.scss";
@@ -18,10 +17,7 @@ export function Task({
   onDoneTask,
   onDeleteTask,
 }: TaskProps) {
-  const [isChecked, setIsChecked] = useState(isDone);
-
   function handleTaskDone() {
-    setIsChecked((state) => !state);
     onDoneTask(id);
   }
 
@@ -35,13 +31,13 @@ export function Task({
         <input
           type="checkbox"
           name="taskStatus"
-          checked={isChecked}
+          checked={isDone}
           onChange={handleTaskDone}
         />
-        {isChecked && <Check size={12} weight="bold" />}
+        {isDone && <Check size={12} weight="bold" />}
       </label>
 
-      {isChecked ? <del>{content}</del> : <p>{content}</p>}
+      {isDone ? <del>{content}</del> : <p>{content}</p>}
       <button type="button" title="Deletar Task" onClick={handleDeleteTask}>
         <Trash size={20} />
       </button>

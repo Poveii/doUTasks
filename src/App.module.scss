@@ -39,3 +39,20 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.changeAllTasks {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.changeAllTasks > button {
+  padding: 0.75rem;
+  background-color: variables.$primary-color;
+  color: variables.$text-color;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
